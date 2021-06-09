@@ -69,6 +69,6 @@ module.exports = {
   questions: questions,
   correctAnswers: correctAnswers,
   candidateAnswers: candidateAnswers,
-  //gradeQuiz: gradeQuiz,
+  gradeQuiz: gradeQuiz,
   runProgram: runProgram
 };
