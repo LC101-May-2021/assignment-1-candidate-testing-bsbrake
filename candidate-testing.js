@@ -42,7 +42,7 @@ function runProgram() {
 
   function gradeQuiz(candidateAnswer, correctAnswer) {
     for (let i = 0; i < questions.length;i++)
-    if (candidateAnswers[i].toUpperCase()===correctAnswers[i].toUpperCase())
+    if (candidateAnswers.toUpperCase()===correctAnswers[i].toUpperCase())
     {grade = grade + 1;
     }
     grade=grade/questions.length*100;
