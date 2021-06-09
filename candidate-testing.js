@@ -4,6 +4,8 @@ const input = require('readline-sync');
 
 // TODO 1.1a: Define candidateName // 
 let candidateName = ("")
+
+  // TODO 1.1c: Ask for candidate's name //
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question = ("Who was the first American woman in space? ");
 let correctAnswer = "Sally Ride ";
@@ -12,45 +14,69 @@ let questions = ["Who was the first American woman in space?", "True or false: 5
 let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
 let candidateAnswers = [];
 
-
 function askForName() {
 candidateName = input.question("Enter your name: ");
-
-console.log("Welcome " + candidateName + "!");
+console.log("\nWelcome " + candidateName + "!\n\n");
 }
 
-
-
-function askQuestion() {
-  // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-  for (let i = 0; i < 5; i++)
-  console.log(questions[i]);
-}
-
-function gradeQuiz(candidateAnswers) {
-
-  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  console.log(` Your Answer: $(candidateAnswers)\n Correct Answer: $(correctAnswers)`);
-  
-  
-  //console.log("Your Answer: " + candidateAnswer);
-  //console.log("Correct Answer: " + correctAnswer);
-
-  let grade;
-  
-
-  return grade;
-}
-
+//MAIN BRANCH
 function runProgram() {
   askForName();
-  // TODO 1.1c: Ask for candidate's name //
+
+
+
+ function askQuestion() {
+  for (let i = 0; i < questions.length;i++)
+  candidateAnswers[i] = input.question(questions[i]);
+ 
+
+  for (let i=0; i <questions.length; i++)
+  console.log(`\nYour Answer: ${candidateAnswers[i]};\nCorrect Answer: ${correctAnswers[i]}`)
+ 
+ }
+
+//function askQuestion() {
+  // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
+  //for (let i = 0; i < questions.length; i++)
+//}
+
+  
+//{
+
+  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly //;
+let grade=0;  //grade is # of questions correct
+  function gradeQuiz(CorrectAnswer) {
+    for (let i = 0; i < questions.length;i++)
+    if (candidateAnswers[i].toUpperCase()===correctAnswers[i].toUpperCase())
+    {grade = grade + 1;
+    }
+    grade=grade/questions.length*100;
+    console.log("\n\nRESULTS\nYour Score: " + grade + "%");
+    
+    if (grade >= 80)
+    {;
+    console.log("You passed and may enroll in our program!")
+    }
+    else
+    {console.log("Unfortunately you did not meet our criteria.")}
+    
+
+}
+ 
+
+  
+  
+
+  //return grade;
+//}
+
+
 
   
   
 
   askQuestion();
-  gradeQuiz(this.candidateAnswers);
+ gradeQuiz(this.candidateAnswers);
 }
 
 // Don't write any code below this line //
@@ -63,6 +89,6 @@ module.exports = {
   questions: questions,
   correctAnswers: correctAnswers,
   candidateAnswers: candidateAnswers,
-  gradeQuiz: gradeQuiz,
+  //gradeQuiz: gradeQuiz,
   runProgram: runProgram
 };
